@@ -17,7 +17,8 @@ export default function MainPage() {
         <LoginSignUp 
             onSignUpClick={onSignUpClick}
             onLoginClick={onLoginClick}
-            theme='red'
+            color='red'
+            backgroundColor='blue'
             size='sm'
         />
     </div>
