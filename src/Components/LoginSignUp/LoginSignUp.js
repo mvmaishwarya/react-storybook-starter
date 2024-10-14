@@ -5,12 +5,6 @@ import user_icon from '../Assets/person.png'
 import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
 
-// DONE: Add theme and size css as props and create stories for that. 
-// Docs explore, controls configure
-// Add disabled button in case validation fails
-// show how errors would look
-// Explore visual tests and interactions
-
 const LoginSignUp = ({color, backgroundColor, size, name, email, password, onSignUpClick, onLoginClick}) => {
 
   const [action, setAction] = useState('SignUp')
@@ -32,61 +26,61 @@ const LoginSignUp = ({color, backgroundColor, size, name, email, password, onSig
             {action === 'Login' ? <div /> : 
             <div className={`input ${size}Height`}>
                 <img src={user_icon} alt='' />
-                <input type='name' className={`${size}Input`} placeholder='Name' value={name}/>
+                <input data-testid='name' type='name' className={`${size}Input`} placeholder='Name' value={name}/>
             </div>
             }
             <div className={`input ${size}Height`}>
                 <img src={email_icon} alt='' />
-                <input type='email' className={`${size}Input`} placeholder='Email ID' value={email}/>
+                <input data-testid='email' type='email' className={`${size}Input`} placeholder='Email ID' value={email}/>
             </div>
             <div className={`input ${size}Height`}>
                 <img src={password_icon} alt='' />
-                <input type='password' className={`${size}Input`} placeholder='Password' value={password}/>
+                <input data-testid='password' type='password' className={`${size}Input`} placeholder='Password' value={password}/>
             </div>
         </div>
         {action === 'SignUp' ? <div /> : 
         <div className='forgot-password'>Forgot Password? <span>Click Here</span></div> }
         <div className='submit-container'>
-            { action === 'SignUp' && <button className={`submit ${size}Height`} style = {backgroundColor && {backgroundColor}} onClick={() => onSignUpClick()}>Sign Up</button> }
-            { action === 'Login' && <button className={`submit ${size}Height`} style = {backgroundColor && {backgroundColor}} onClick={() => onLoginClick()}>Login</button> }
+            { action === 'SignUp' && <button className={`submit ${size}Height`} style = {backgroundColor && {backgroundColor}} onClick={onSignUpClick}>Sign Up</button> }
+            { action === 'Login' && <button className={`submit ${size}Height`} style = {backgroundColor && {backgroundColor}} onClick={onLoginClick}>Login</button> }
         </div>
     </div>
   )
 }
 
 LoginSignUp.propTypes = {
-   /**
-   * Enter first name and last name
-   */
-    name: PropTypes.string,
   /**
-   * Enter email address
-   */
-    email: PropTypes.string,
-  /**
-   * Enter password
-   */
-    password: PropTypes.string,
-  /**
-   * Create a new account
-   */
-    onSignUpClick: PropTypes.func,
-  /**
-   * Sign in to your account
-   */
-    onLoginClick: PropTypes.func,
-  /**
-   * Choose a color theme for your texts
-   */
-    color:PropTypes.string,
-  /**
-   * Choose a background color theme for your texts
-   */
-    backgroundColor: PropTypes.string,
-  /**
-   * How large should the fields be?
-   */
-    size: PropTypes.oneOf(['sm', 'md', 'lg'])
+  * Enter first name and last name
+  */
+   name: PropTypes.string,
+ /**
+  * Enter email address
+  */
+   email: PropTypes.string,
+ /**
+  * Enter password
+  */
+   password: PropTypes.string,
+ /**
+  * Create a new account
+  */
+   onSignUpClick: PropTypes.func,
+ /**
+  * Sign in to your account
+  */
+   onLoginClick: PropTypes.func,
+ /**
+  * Choose a color theme for your texts
+  */
+   color:PropTypes.string,
+ /**
+  * Choose a background color theme for your texts
+  */
+   backgroundColor: PropTypes.string,
+ /**
+  * How large should the fields be?
+  */
+   size: PropTypes.oneOf(['sm', 'md', 'lg'])
 }
 
 LoginSignUp.defaultProps = {
@@ -95,10 +89,9 @@ LoginSignUp.defaultProps = {
   password: 'HelloWorld',
   onSignUpClick: PropTypes.func,
   onLoginClick: PropTypes.func,
-  color:'black',
-  backgroundColor: 'black',
+  color:'Black',
+  backgroundColor: 'Black',
   size: 'md'
-}
-
+ }
 
 export default LoginSignUp
